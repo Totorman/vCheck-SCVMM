@@ -64,33 +64,36 @@ $PluginsFolder = $ScriptPath + "\Plugins\"
 $Plugins = Get-ChildItem -Path $PluginsFolder -filter "*.ps1" | Sort Name
 $GlobalVariables = $ScriptPath + "\GlobalVariables.ps1"
 
-$file = Get-Content $GlobalVariables
+# autosetup not working yet
 
-$Setup = ($file | Select-String -Pattern '# Set the following to true to enable the setup wizard for first time run').LineNumber
-$SetupLine = $Setup ++
-$SetupSetting = invoke-Expression (($file[$SetupLine]).Split("="))[1]
-if ($config) {
-	$SetupSetting = $true
-}
-If ($SetupSetting) {
-	cls
-	Write-Host
-	Write-Host -ForegroundColor Yellow "Welcome to vCheck by Virtu-Al http://virtu-al.net"
-	Write-Host -ForegroundColor Yellow "================================================="
-	Write-Host -ForegroundColor Yellow "This is the first time you have run this script or you have re-enabled the setup wizard."
-	Write-Host
-	Write-Host -ForegroundColor Yellow "To re-run this wizard in the future please use vCheck.ps1 -Config"
-	Write-Host -ForegroundColor Yellow "To define a path to store each vCheck report please use vCheck.ps1 -Outputpath C:\tmp"
-	Write-Host 
-	Write-Host -ForegroundColor Yellow "Please complete the following questions or hit Enter to accept the current setting"
-	Write-Host -ForegroundColor Yellow "After completing ths wizard the vCheck report will be displayed on the screen."
-	Write-Host
-	
-	Invoke-Settings -Filename $GlobalVariables -GB $true
-	Foreach ($plugin in $Plugins) { 
-		Invoke-Settings -Filename $plugin.Fullname
-	}
-}
+#$file = Get-Content $GlobalVariables
+
+#$Setup = ($file | Select-String -Pattern '# Set the following to true to enable the setup wizard for first time run').LineNumber
+#$SetupLine = $Setup ++
+#$SetupSetting = invoke-Expression (($file[$SetupLine]).Split("="))[1]
+#if ($config) {
+#	$SetupSetting = $true
+#}
+
+#If ($SetupSetting) {
+#	cls
+#	Write-Host
+#	Write-Host -ForegroundColor Yellow "Welcome to vCheck by Virtu-Al http://virtu-al.net"
+#	Write-Host -ForegroundColor Yellow "================================================="
+#	Write-Host -ForegroundColor Yellow "This is the first time you have run this script or you have re-enabled the setup wizard."
+#	Write-Host
+#	Write-Host -ForegroundColor Yellow "To re-run this wizard in the future please use vCheck.ps1 -Config"
+#	Write-Host -ForegroundColor Yellow "To define a path to store each vCheck report please use vCheck.ps1 -Outputpath C:\tmp"
+#	Write-Host 
+#	Write-Host -ForegroundColor Yellow "Please complete the following questions or hit Enter to accept the current setting"
+#	Write-Host -ForegroundColor Yellow "After completing ths wizard the vCheck report will be displayed on the screen."
+#	Write-Host
+#	
+#	Invoke-Settings -Filename $GlobalVariables -GB $true
+#	Foreach ($plugin in $Plugins) { 
+#		Invoke-Settings -Filename $plugin.Fullname
+#	}
+#}
 
 . $GlobalVariables
 

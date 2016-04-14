@@ -1,5 +1,6 @@
-vCheck-SCVMM
-============
+vCheck-SCVMM (Totorman's little fork )
+forked to be compatible with SCVMM 2012 R2 and HyperV R3 (but is not compatible now with HyperV R2 :) )
+=======================================================================================================
 
 vCheck Daily Report for SCVMM
 
@@ -9,7 +10,7 @@ This script picks on the key known issues and potential issues scripted as plugi
 
 One of they key things about this report is if there is no issue in a particular place you will not receive that section in the email, for example if there are no datastores with less than 5% free space (configurable) then the disk space section in the virtual infrastructure version of this script, it will not show in the email, this ensures that you have only the information you need in front of you when you get into the office.
 
-This script is not to be confused with an Audit script, although the reporting framework can also be used for auditing scripts too.  I don’t want to remind you that you have 5 hosts and what there names are and how many CPU’s they have each and every day as you don’t want to read that kind of information unless you need it, this script will only tell you about problem areas with your infrastructure.
+This script is not to be confused with an Audit script, although the reporting framework can also be used for auditing scripts too.  I donâ€™t want to remind you that you have 5 hosts and what there names are and how many CPUâ€™s they have each and every day as you donâ€™t want to read that kind of information unless you need it, this script will only tell you about problem areas with your infrastructure.
 
 More Info
 =========
